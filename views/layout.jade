@@ -1,0 +1,18 @@
+//- layout.jade
+doctype html
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    block title
+      title Transient
+    include ./base.jade
+  body
+    include ./navbar.jade
+    .container
+      block contents
+        .row
+          .col-md-8
+            block left
+          .col-md-4
+            block right
+              include ./register-block.jade

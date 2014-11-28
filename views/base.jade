@@ -1,0 +1,13 @@
+//- base.jade
+// I must admit I grow addicted to jade now
+mixin js(url)
+  script(src=url)
+mixin css(url)
+  link(href=url, rel='stylesheet')
+
++js('http://cdn.bootcss.com/jquery/2.1.1/jquery.js')
++css('http://cdn.bootcss.com/bootstrap/3.3.1/css/bootstrap.css')
++js('http://cdn.bootcss.com/bootstrap/3.3.1/js/bootstrap.js')
++css('css/cosmo.css')
++css('css/padding-fix.css')
++js('http://cdn.bootcss.com/Chart.js/1.0.1-beta.2/Chart.js')

@@ -1,0 +1,16 @@
+//- register-block.jade
+
+.panel.panel-primary
+  .panel-heading
+    h3(class="panel-title")  Sign Up / Log in
+  .panel-body
+    form(role="form")
+      .form-group
+        label(for='formUsername') Username
+        input(type='text', class='form-control', id='formUsername', placeholder='Enter Username')
+      .form-group
+        lable(for='formPassword') Password
+        input(type='password', class='form-control', id='formPassword', placeholder='Enter Password')
+    .btn-group
+      a(href='#',class='btn btn-primary') Log in
+      a(href='#',class='btn btn-info') Sign Up
