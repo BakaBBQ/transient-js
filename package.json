@@ -13,7 +13,14 @@
     "express-device": "~0.3.7",
     "jade": "~1.7.0",
     "sequelize": "~2.0.0",
-    "gravatar": "~1.1.0"
+    "gravatar": "~1.1.0",
+    "sqlite3": "~3.0.4",
+    "sequelize-cli": "~0.3.3",
+    "sequelize-restful": "~0.3.0",
+    "restizr": "~0.5.2",
+    "passport-local": "~1.0.0",
+    "passport": "~0.2.1",
+    "connect-flash": "~0.1.1"
   },
   "devDependencies": {
     "grunt": "~0.4.1",

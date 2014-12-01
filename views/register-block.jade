@@ -2,15 +2,16 @@
 
 .panel.panel-primary
   .panel-heading
-    h3(class="panel-title")  Sign Up / Log in
+    h3(class="panel-title")  Log in
   .panel-body
-    form(role="form")
+    form(role="form", action="/login", method="post")
       .form-group
-        label(for='formUsername') Username
-        input(type='text', class='form-control', id='formUsername', placeholder='Enter Username')
+        label(for='formUsername') Email
+        input(name="email", type='text', class='form-control', id='formUsername', placeholder='Enter Email')
       .form-group
         lable(for='formPassword') Password
-        input(type='password', class='form-control', id='formPassword', placeholder='Enter Password')
-    .btn-group
-      a(href='#',class='btn btn-primary') Log in
-      a(href='#',class='btn btn-info') Sign Up
+        input(name="password", type='password', class='form-control', id='formPassword', placeholder='Enter Password')
+      button(type="submit", class="btn btn-primary") Log in
+    if message
+      h3= message
+    p Still no message

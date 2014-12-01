@@ -15,4 +15,7 @@ html(lang="en")
             block left
           .col-md-4
             block right
-              include ./register-block.jade
+              if user === null
+                include ./register-block.jade
+              else
+                include ./user-block.jade

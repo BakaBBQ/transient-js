@@ -1,0 +1,18 @@
+extends ./layout.jade
+block contents
+  .page-header
+    h1 Register
+  form(role='form', action='/register', method='post')
+    .form-group
+      label(for='email') Email
+      input(name='email', type='email', class='form-control', id='email', placeholder='xxx@example.com')
+    .form-group
+      label(for='first-name') First Name
+      input(name='firstName', type='text', class='form-control', id='first-name', placeholder='Adam')
+    .form-group
+      label(for='last-name') Last Name
+      input(name='lastName', type='text', class='form-control', id='last-name', placeholder='Smith')
+    .form-group
+      label(for='password') Password
+      input(name='password', type='password', class='form-control', id='password', placeholder='Anything under 30 characters')
+    button(type="submit", class="btn btn-primary") Register
