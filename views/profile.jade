@@ -1,0 +1,10 @@
+extends ./user-function.jade
+block main-contents
+  .page-header
+    h1 Profile
+  .alert.alert-info(role='alert')
+    | You can only alter your description for the current time being
+  .form(role='form')
+    .form-group
+      label(for='descriptionBox') Description
+      textarea.form-control(rows='3', id='descriptionBox', placeholder='Concrete introduction to yourself under 200 words')

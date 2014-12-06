@@ -1,4 +1,13 @@
 //- navbar.jade
 nav(class='navbar navbar-inverse navbar-fixed-top', role='navigation')
   div(class='container')
-    a(class='navbar-brand', href='#') Transient
+    .navbar-header
+      a(class='navbar-brand', href='/') Transient
+    #navbar.navbar-collapse.collapse
+      ul.nav.navbar-nav
+      ul.nav.navbar-nav.navbar-right
+        li
+          if user === null
+            a(href="#") Not logged in
+          else
+            a(href=user.getUserPageRoute())= user.getFullName()

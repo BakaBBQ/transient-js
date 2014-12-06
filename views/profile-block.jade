@@ -1,0 +1,14 @@
+.thumbnail
+  img(src=user.getGravatar(300))
+  .caption
+    h3= user.getFullName()
+    p Lorem Ipsum
+if user
+  .list-group
+    a.list-group-item#explore-li(href="/explore") <span class="glyphicon glyphicon-eye-open"></span> Explore
+    a.list-group-item#user-li(href=user.getUserPageRoute()) <span class="glyphicon glyphicon-user"></span> User Page
+    a.list-group-item#profile-li(href="/profile") <span class="glyphicon glyphicon-book"></span> Public Profile
+    a.list-group-item#submissions-li(href="/submissions") <span class="glyphicon glyphicon-inbox"></span> Submissions
+  .list-group
+    a.list-group-item#codex-li(href='/codex') <span class="glyphicon glyphicon-leaf"></span> Codex (Notables)
+script(src='/js/profile-block-active.js')

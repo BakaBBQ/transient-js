@@ -1,6 +1,7 @@
 "use strict";
 
 var gravatar = require('gravatar');
+var changeCase = require('change-case');
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define('User',{
     email: {
@@ -24,12 +25,18 @@ module.exports = function(sequelize, DataTypes) {
         is: /^[a-zA-Z]+$/i
       }
     },
+    description: {
+      type: DataTypes.STRING,
+      validate:{
+        max: 400
+      }
+    },
     password: {
       type: DataTypes.STRING,
       validate:{
         min: 1
       }
-    },
+    }
   },{
     classMethods: {
       associate: function(models) {
@@ -38,7 +45,17 @@ module.exports = function(sequelize, DataTypes) {
     },
     instanceMethods: {
       getGravatar: function(size) {
-        return gravatar.url(this.email, {s: size, r: 'y', d: 'retro'});
+        var url = gravatar.url(this.email, {s: size, r: 'y', d: 'retro'});
+        url = url.replace('www.gravatar', 'gravatar.duoshuo');
+        return url;
+      },
+
+      getFullName: function(){
+        return changeCase.title(this.firstName + ' ' + this.lastName);
+      },
+
+      getUserPageRoute: function(){
+        return ('/user/' + this.firstName + '-' + this.lastName);
       }
     }
   });

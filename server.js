@@ -19,6 +19,7 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var flash = require('connect-flash');
 
+var changeCase = require('change-case');
 
 app.configure(function() {
     // I need to access everything in '/public' directly
@@ -99,6 +100,8 @@ res.render('register', {});
 */
 
 app.post('/register', function(req, res){
+  req.body.firstName = changeCase.lowerCase(req.body.firstName);
+  req.body.lastName = changeCase.lowerCase(req.body.lastName);
   models.User.create(req.body).success(function(user){
     console.log("New User Registered: " + user.values);
     res.render('index', {});
@@ -113,7 +116,34 @@ app.get('/register', function(req, res) {
   res.render('register', {});
 });
 
+app.get('/profile', function(req, res) {
+  res.render('profile', {});
+});
 
+app.get('/submissions', function(req, res){
+  res.render('submissions', {});
+});
+
+app.get('/codex', function(req, res){
+  res.render('codex', {});
+});
+
+app.get('/user/:username', function(req, res) {
+  var username = req.params.username;
+  var splittedUsername = username.split('-');
+  var fName = splittedUsername[0];
+  var lName = splittedUsername[1];
+  models.User.find({where: {firstName: fName, lastName: lName}}).success(function(user){
+    if(user === null){
+      console.log("User Page Failed: " + username + ' with extracted names of ' + fName + ' and ' + lName);
+      res.redirect('/');
+    } else {
+      console.log("User Page Rendered: " + user.email);
+      //redirect
+      res.render('user', {viewedUser: user});
+    }
+  });
+});
 
 app.post('/login', function(req, res){
   var un = req.body.email;

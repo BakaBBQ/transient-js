@@ -4,5 +4,10 @@
   .panel-heading
     h3(class="panel-title")  Profile
   .panel-body
-    h2= user.email
+    .media
+      a.media-left.media-middle(href="#")
+        img(src=user.getGravatar(128))
+      .media-body
+        center
+          h3.media-heading= user.firstName + " " + user.lastName
                   

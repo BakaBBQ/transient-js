@@ -28,3 +28,5 @@ bower_components
 .DS_Store
 
 models/submission.js
+
+database.sqlite
